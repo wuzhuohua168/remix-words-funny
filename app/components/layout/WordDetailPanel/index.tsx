@@ -15,6 +15,8 @@ import { LuIcon } from "~/components/common/LuIcon";
 import { WordAudioButton } from "./WordAudioButton";
 import { WordCognates } from "./WordCognates";
 import { WordComments } from "./Comment";
+import { WordFavoriteButton } from "./WordFavoriteButton";
+import { WordGraph } from "./WordGraph";
 import { WordPhrases } from "./WordPhrases";
 import { WordSentences } from "./WordSentences";
 import { WordSynonyms } from "./WordSynonyms";
@@ -55,14 +57,17 @@ export function WordDetailPanel() {
       <>
         <div className="flex items-center justify-between">
           <div className="font-merriweathers text-4xl">{word}</div>
-          <div className="flex xl:hidden">
-            <Button
-              isIconOnly
-              variant="outline"
-              onPress={() => setIsWordDetailPanelDrawerOpen(false)}
-            >
-              <LuIcon icon={X} />
-            </Button>
+          <div className="flex items-center gap-1">
+            <WordFavoriteButton wordSlug={wordDetailSlug} />
+            <div className="flex xl:hidden">
+              <Button
+                isIconOnly
+                variant="outline"
+                onPress={() => setIsWordDetailPanelDrawerOpen(false)}
+              >
+                <LuIcon icon={X} />
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -108,6 +113,7 @@ export function WordDetailPanel() {
       <WordSentences />
       <WordSynonyms />
       <WordCognates />
+      <WordGraph />
       <WordComments />
     </div>
   );

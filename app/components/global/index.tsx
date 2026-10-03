@@ -4,6 +4,7 @@ import { useAppTheme } from "~/hooks/useAppTheme";
 import { ManageBooksModal } from "./ManageBooksModal";
 import { MobileDrawers } from "./MobileDrawers";
 import { ProfileModal } from "./ProfileModal";
+import { PlanModal } from "./PlanModal";
 import { SettingModal } from "./SettingModal";
 import { SignInModal } from "./SignInModal";
 import { SignUpModal } from "./SignUpModal";
@@ -20,6 +21,7 @@ export function GlobalComponents() {
       <SignUpModal />
       <UpdatePasswordModal />
       <SettingModal />
+      <PlanModal />
       <ProfileModal />
       <ManageBooksModal />
       <MobileDrawers />
