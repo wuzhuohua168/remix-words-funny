@@ -6,8 +6,15 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "~/common/queryClient";
 import { GlobalComponents } from "../global";
 import type { ReactNode } from "react";
+import { useLocation } from "react-router";
 
 export function AppLayout({ children }: { children: ReactNode }) {
+  const { pathname } = useLocation();
+  const isFullBleedPage =
+    pathname.startsWith("/study") ||
+    pathname.startsWith("/graph") ||
+    pathname.startsWith("/favorites");
+
   return (
     <QueryClientProvider client={queryClient}>
       <GlobalComponents />
@@ -18,7 +25,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
 
         <section className="min-w-0 flex-1">
           {children}
-          <WordsPanel />
+          {!isFullBleedPage && <WordsPanel />}
         </section>
 
         <Surface className="border-separator z-10 hidden h-screen w-100 shrink-0 overflow-y-auto border-l xl:block">

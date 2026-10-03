@@ -1,6 +1,7 @@
 import { Button, Skeleton } from "@heroui/react";
 import { useSetAtom } from "jotai";
-import { Settings, X } from "lucide-react";
+import { GraduationCap, Network, Settings, Star, X } from "lucide-react";
+import { href, useNavigate } from "react-router";
 import {
   isBooksPanelDrawerOpenAtom,
   isProfileModalOpenAtom,
@@ -10,6 +11,57 @@ import {
 import { useMyUserInfo } from "~/hooks/useMyUserInfo";
 import { LuIcon } from "~/components/common/LuIcon";
 import { UserAvatar } from "~/components/common/UserAvatar";
+
+function StudyButton() {
+  const navigate = useNavigate();
+
+  return (
+    <Button
+      isIconOnly
+      variant="outline"
+      aria-label="背诵"
+      onPress={() => {
+        navigate(href("/study"));
+      }}
+    >
+      <LuIcon icon={GraduationCap} />
+    </Button>
+  );
+}
+
+function GraphButton() {
+  const navigate = useNavigate();
+
+  return (
+    <Button
+      isIconOnly
+      variant="outline"
+      aria-label="词汇星图"
+      onPress={() => {
+        navigate(href("/graph"));
+      }}
+    >
+      <LuIcon icon={Network} />
+    </Button>
+  );
+}
+
+function FavoritesButton() {
+  const navigate = useNavigate();
+
+  return (
+    <Button
+      isIconOnly
+      variant="outline"
+      aria-label="我的收藏"
+      onPress={() => {
+        navigate(href("/favorites"));
+      }}
+    >
+      <LuIcon icon={Star} />
+    </Button>
+  );
+}
 
 function SettingButton() {
   const setIsSettingModalOpen = useSetAtom(isSettingModalOpenAtom);
@@ -85,6 +137,9 @@ export function BooksPanelHeader() {
             </div>
           </div>
           <div className="flex items-center gap-1">
+            <FavoritesButton />
+            <GraphButton />
+            <StudyButton />
             <SettingButton />
             <CloseMenuButton />
           </div>
@@ -94,6 +149,9 @@ export function BooksPanelHeader() {
         <div className="flex h-full items-center justify-between">
           <SignInButton />
           <div className="flex items-center gap-1">
+            <FavoritesButton />
+            <GraphButton />
+            <StudyButton />
             <SettingButton />
             <CloseMenuButton />
           </div>

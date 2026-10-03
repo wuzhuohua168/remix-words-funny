@@ -8,6 +8,7 @@ export const listTabAtom = atom(ListTabType.ALL);
 export const isProfileModalOpenAtom = atom(false);
 export const searchWordAtom = atom("");
 export const isSettingModalOpenAtom = atom(false);
+export const isPlanModalOpenAtom = atom(false);
 export const isSignInModalOpenAtom = atom(false);
 export const isSignUpModalOpenAtom = atom(false);
 export const isUpdatePasswordModalOpenAtom = atom(false);

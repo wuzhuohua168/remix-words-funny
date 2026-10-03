@@ -2,6 +2,7 @@ import { ProgressBar, Toast } from "@heroui/react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useNavigation } from "react-router";
 import { ProfileModal } from "./ProfileModal";
+import { PlanModal } from "./PlanModal";
 import { SettingModal } from "./SettingModal";
 import { SignInModal } from "./SignInModal";
 import { SignUpModal } from "./SignUpModal";
@@ -35,6 +36,7 @@ export function GlobalComponents() {
       <SignUpModal />
       <UpdatePasswordModal />
       <SettingModal />
+      <PlanModal />
       <ProfileModal />
       <MobileDrawers />
     </>
